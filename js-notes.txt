@@ -16,3 +16,9 @@ Objects:
 
 var [OBJETCT NAME] = {};
 [OBJECT NAME] + .[PROPERTY NAME] || ["PROPERTY NAME"] ~ "declare property in the object, after created"
+
+***Validate JSON = http://jsonlint.com/
+
+
+
+

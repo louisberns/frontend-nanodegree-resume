@@ -2,7 +2,13 @@ UDACITY - JavaScript Basics
 
 Notes about this javascript course
 
-
+.prepend(); ~ "let you put content to the beggining of HTML"
+.append(); ~ "let you put content to the end of HTML"
+.replace(); ~ "replace a var content"
+.slice(start, [end]); ~ "slice a string"
+[n].toUpperCase(); ~ "make text uppercase"
+.pop(); ~ "remove last value from array"
+.push(); ~ "add element to the end of an array"
 
 
 

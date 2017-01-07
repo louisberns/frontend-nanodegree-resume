@@ -19,6 +19,9 @@ var [OBJETCT NAME] = {};
 
 ***Validate JSON = http://jsonlint.com/
 
+Functions:
+if / else / else if
+while / for [in]/ forEACH
 
 
 

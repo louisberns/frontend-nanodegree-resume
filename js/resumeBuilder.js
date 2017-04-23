@@ -2,52 +2,66 @@
 
 /*Objects*/
 var bio = {
-	"name" : "Luís Guilherme Berns Silva",
+	"name" : "Louis Berns",
 	"role" : "Web Developer",
-	"welcomeMessage" : "Hello, ....",
+	"welcomeMessage" : "I'm passionate for User Experience and how technology can help people to achieve their goals and dreams.",
 	"bioPic" : "images/fry.jpg",
 	"contacts" : [
 		{
-			"mobile" : "+55 044 9-9972-5926",
+			"mobile" : "+55 044 9 9972-5926",
 			"email" : "louisuntitled@gmail.com",
-			"github" : "louisberns",
+			"github" : "/louisberns",
 			"twitter" : "@louisuntitled",
-			"location" : "Brazil"
+			"location" : "Maringá-PR, Brazil"
 		}
 	],
-	"skills" : [ "web development", "project management", "startup foundation" ]
+	"skills" : [ "HTML/CSS", "Javascript/jQuery", "Project Management", "SCRUM", "Inkscape" ],
+	"display" : function () {
+		var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
+		$("#header").append(formattedPic);
+
+		var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+		$("#header").append(formattedWelcome);
+
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+		$("#header").prepend(formattedRole);
+
+		var formattedName = HTMLheaderName.replace("%data%", bio.name);
+		$("#header").prepend(formattedName);
+
+		bio.contacts.forEach(function(contact) {
+			var formattedMobile = HTMLmobile.replace("%data%", contact.mobile);
+			var formattedEmail = HTMLemail.replace("%data%", contact.email);
+			var formattedTwitter = HTMLtwitter.replace("%data%", contact.twitter);
+			var formattedGitHub = HTMLgithub.replace("%data%", contact.github);
+			var formattedLocation = HTMLlocation.replace("%data%", contact.location);
+			var displayContacts = formattedMobile + formattedEmail + formattedTwitter + formattedGitHub + formattedLocation;
+
+			$("#topContacts").append(displayContacts);
+		});
+		if (bio.skills.length > 0) {
+			$("#header").append(HTMLskillsStart);
+			bio.skills.forEach(function(n){
+				var skill = n;
+				var formattedSkills = HTMLskills.replace("%data%", skill);
+				$("#skills").append(formattedSkills);
+			});
+		}
+	}
 }
 
 var education = {
 	"schools" : [
 		{
-			"name" : "High School",
-			"location" : "Gastão Vidigal",
-			"degree dates" : "2011 to 2012",
-			"url" : "some-url"
-		},
-		{
-			"name" : "Junior School",
-			"location" : "Regina Mundi",
-			"degree dates" : "2010",
-			"url" : "some-url"
-		}
-	],
-	"majors" : [
-		{
-			"name" : "Administration",
-			"location" : "Unicesumar",
-			"degree dates" : "2013 to 2017",
+			"name" : "Unicesumar",
+			"location" : "Maringá-PR, Brazil",
+			"degree" : "Administration",
+			"majors" : [" ", " "],
+			"dates" : "2013 to 2017",
 			"url" : "some-url"
 		}
 	],
 	"onlineCourses" : [
-		{
-			"title" : "programming logic",
-			"school" : "Soft Blue",
-			"dates" : "2010",
-			"url" : "some-url"
-		},
 		{
 			"title" : "Git Hub",
 			"school" : "Udacity",
@@ -59,141 +73,136 @@ var education = {
 			"school" : "Udacity",
 			"dates" : "2017",
 			"url" : "some-url"
+		},
+		{
+			"title" : "Programming Logic",
+			"school" : "Soft Blue",
+			"dates" : "2013",
+			"url" : "some-url"
+		},
+		{
+			"title" : "HTML & CSS",
+			"school" : "Codecademy",
+			"dates" : "2013",
+			"url" : "some-url"
 		}
-	]
+	],
+	"display" : function() {
+		$("#education").prepend(HTMLschoolStart);
+
+		education.schools.forEach(function(school) {
+			var formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
+			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
+			var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
+		});
+
+		education.onlineCourses.forEach(function(course) {
+			var formattedTitle = HTMLonlineTitle.replace("%data%", course.title);
+			var formattedSchool = HTMLonlineSchool.replace("%data%", course.school);
+			var formattedDates = HTMLonlineDates.replace("%data%", course.dates);
+			var formattedURL = HTMLonlineURL.replace("%data%", course.url);
+
+			var displayCourses = formattedTitle + formattedSchool + formattedDates + formattedURL;
+
+			$("#education").append(displayCourses);
+		});
+
+	}
 }
 
 var work = {
 	"jobs" : [
 		{
-			"employer" : "Silberseg",
-			"title" : "associated",
+			"employer" : "Smart Sprint",
+			"title" : "Web Developer",
 			"location" : "Maringá-PR",
-			"dates" : "2011 to 2015",
-			"description" : "IT infrastructure and projects for improve proeficiency, and administrative work in the office"
+			"dates" : "JAN/2017 - PRESENT",
+			"description" : "E-business development focusing on digital marketing results and better User Experience, improving results with client’s interaction and data analysis."
 		},
 		{
 			"employer" : "Unimed Maringá",
-			"title" : "PMO internship",
+			"title" : "Project Assistant",
 			"location" : "Maringá-PR",
-			"dates" : "2015",
-			"description" : "Assist the PMO team in projects management, assuming the administrative work in the office, handling documents and controlling"
+			"dates" : "MAR/2016 - PRESENT",
+			"description" : "Project Manager of Innovation and Technology projects, working with multidisciplinary teams in healthcare sector."
 		},
 		{
 			"employer" : "Unimed Maringá",
-			"title" : "Project Assistant PMO",
+			"title" : "Project Internship",
 			"location" : "Maringá-PR",
-			"dates" : "2016 to 2017",
-			"description" : "Management of IT projects in the office and development of innovation projects, such as the first Hackathon of Unimed's cooperative"
+			"dates" : "MAR/2015 - MAR/2016",
+			"description" : "Assist the PMO team in projects management, assuming the administrative work in the office, handling documents and controlling acquisitions."
 		}
-	]
+	],
+	"display" : function () {
+		$("#workExperience").append(HTMLworkStart);
+
+		work.jobs.forEach(function(job){
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+			var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+			var formattedWorkLocation = HTMLworkLocation.replace("%data%", job.location);
+			var formattedWorkDates = HTMLworkDates.replace("%data%", job.dates);
+			var formattedWorkDescription = HTMLworkDescription.replace("%data%", job.description);
+			var forTitleEmplo = formattedEmployer + formattedTitle + formattedWorkLocation + formattedWorkDates + formattedWorkDescription;
+
+			$(".work-entry:last").append(forTitleEmplo);
+		});
+	}
 }
 
 var projects = {
-	"projects" : [
+	"project" : [
 		{
-			"title" : "Hackathon Unimed",
-			"dates" : "August, 27 to 28 of 2016",
-			"description" : "The first hackathon in the Unimed's cooperative in Brazil, with 130 people forming more than 22 teams. The top three projects was awarded with 5.000 reais each",
-			"images" : ["url1", "url2"] 
+			"title" : "Alphagreen",
+			"dates" : "2017",
+			"description" : "Fully responsible institucional site for a real estate business, including available real estate deals gallery \n Developed site with stages of validation with the end user and collecting feedbacks for improve User Experience \n Clean code, no frameworks for stylish web design and minimal content making easier user access in any device or connection",
+			"images" : ["url1", "url2"]
 		},
 		{
-			"title" : "Project Management Simplified",
-			"dates" : "2015",
-			"description" : "We created a simplified method for project management in order to engage the whole company with the PMO role there, going thowards PMO maturity",
+			"title" : "Oh Yeah",
+			"dates" : "2017",
+			"description" : "Fully responsible e-commerce with design patterns from Google for a target market \n Developed site with stages of validation with the end user and collecting feedbacks for improve User Experience \n Constant market and results analysis for applying improvements in market strategies",
 			"images" : ["url1", "url2"]
 		}
-	]
+	],
+	"display" : function() {
+		for (var n = 0; projects.project.length > n; n++) {
+			$("#projects").append(HTMLprojectStart);
+			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.project[n].title);
+			var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.project[n].dates);
+			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.project[n].description);
+			var formattedProjectImages = [];
+
+			$(".project-entry:last").append(formattedProjectTitle);
+			$(".project-entry:last").append(formattedProjectDates);
+			$(".project-entry:last").append(formattedProjectDescription);
+
+			for (var c = 0; projects.project[n].images.length > c; c++) {
+				formattedProjectImages = HTMLprojectImage.replace("%data%", projects.project[n].images[c]);
+				$(".project-entry:last").append(formattedProjectImages);
+			}
+		}
+	}
 }
+
 
 /*Insert content*/
-var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
-$("#header").append(formattedPic);
 
-var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(formattedWelcome);
+bio.display();
+work.display();
+projects.display();
+education.display();
 
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(formattedRole);
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").prepend(formattedName);
+/*$("#header").append(internationalizeButton);
 
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[0].mobile);
-$("#topContacts").append(formattedMobile);
+function inName(name) {
+	var changeName = [];
+	changeName = name.split(" ");
+	changeName[0] = changeName[0].slice(0, 1).toUpperCase() + changeName[0].slice(1).toLowerCase();
+	changeName[1] = changeName[1].toUpperCase();
 
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts[0].email);
-$("#topContacts").append(formattedEmail);
-
-var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts[0].twitter);
-$("#topContacts").append(formattedTwitter);
-
-var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts[0].github);
-$("#topContacts").append(formattedGitHub);
-
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts[0].location);
-$("#topContacts").append(formattedLocation);
-
-if (bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-
-	var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkills);
-	formattedSkills = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkills);
-	formattedSkills = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills").append(formattedSkills);
-
-} else {}
-
-/*for (job in work.jobs) {
-	$("#workExperience").append(HTMLworkStart);
-
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var forTitleEmplo = formattedEmployer + formattedTitle;
-
-	$(".work-entry:last").append(forTitleEmplo);
-
+	return changeName[0] + " " + changeName[1];
 }*/
 
-/*work.jobs.forEach(job) {
-	$("#workExperience").append(HTMLworkStart);
-
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var forTitleEmplo = formattedEmployer + formattedTitle;
-
-	$(".work-entry:last").append(forTitleEmplo);
-}*/
-
-/*$("#workExperience").append(HTMLworkStart);
-
-work.jobs.forEach(function(job){
-	var employer = job.employer;
-	var title = job.title;
-
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%", title);
-	var forTitleEmplo = formattedEmployer + formattedTitle;
-
-	$(".work-entry:last").append(forTitleEmplo);
-	//return forTitleEmplo;
-});*/
-
-function displayWork() {
-	$("#workExperience").append(HTMLworkStart);
-
-	work.jobs.forEach(function(job){
-		var employer = job.employer;
-		var title = job.title;
-
-		var formattedEmployer = HTMLworkEmployer.replace("%data%", employer);
-		var formattedTitle = HTMLworkTitle.replace("%data%", title);
-		var forTitleEmplo = formattedEmployer + formattedTitle;
-
-		$(".work-entry:last").append(forTitleEmplo);
-	});
-}
-
-displayWork();
+//$("mapDiv").append(googleMap);

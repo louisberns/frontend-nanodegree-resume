@@ -1,11 +1,9 @@
-
-
 /*Objects*/
 var bio = {
 	"name" : "Louis Berns",
 	"role" : "Web Developer",
 	"welcomeMessage" : "I'm passionate for User Experience and how technology can help people to achieve their goals and dreams.",
-	"bioPic" : "images/fry.jpg",
+	"bioPic" : "images/me.jpg",
 	"contacts" : [
 		{
 			"mobile" : "+55 044 9 9972-5926",
@@ -55,8 +53,8 @@ var education = {
 		{
 			"name" : "Unicesumar",
 			"location" : "Maringá-PR, Brazil",
-			"degree" : "Administration",
-			"majors" : [" ", " "],
+			"degree" : "BS",
+			"majors" : ["Administration"],
 			"dates" : "2013 to 2017",
 			"url" : "some-url"
 		}
@@ -88,12 +86,17 @@ var education = {
 		}
 	],
 	"display" : function() {
-		$("#education").prepend(HTMLschoolStart);
+		$("#education").append(HTMLschoolStart);
 
 		education.schools.forEach(function(school) {
 			var formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
 			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
+			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
+			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", school.majors);
 			var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
+			var displaySchool = formattedSchoolName + formattedSchoolLocation + formattedSchoolDegree + formattedSchoolMajor + formattedSchoolDates;
+
+			$(".education-entry:last").append(displaySchool);
 		});
 
 		education.onlineCourses.forEach(function(course) {
@@ -101,10 +104,9 @@ var education = {
 			var formattedSchool = HTMLonlineSchool.replace("%data%", course.school);
 			var formattedDates = HTMLonlineDates.replace("%data%", course.dates);
 			var formattedURL = HTMLonlineURL.replace("%data%", course.url);
-
 			var displayCourses = formattedTitle + formattedSchool + formattedDates + formattedURL;
 
-			$("#education").append(displayCourses);
+			$(".education-entry:last").append(displayCourses);
 		});
 
 	}
@@ -156,13 +158,13 @@ var projects = {
 			"title" : "Alphagreen",
 			"dates" : "2017",
 			"description" : "Fully responsible institucional site for a real estate business, including available real estate deals gallery \n Developed site with stages of validation with the end user and collecting feedbacks for improve User Experience \n Clean code, no frameworks for stylish web design and minimal content making easier user access in any device or connection",
-			"images" : ["url1", "url2"]
+			"images" : ["images/197x148.gif", "images/197x148.gif"]
 		},
 		{
 			"title" : "Oh Yeah",
 			"dates" : "2017",
 			"description" : "Fully responsible e-commerce with design patterns from Google for a target market \n Developed site with stages of validation with the end user and collecting feedbacks for improve User Experience \n Constant market and results analysis for applying improvements in market strategies",
-			"images" : ["url1", "url2"]
+			"images" : ["images/197x148.gif", "images/197x148.gif"]
 		}
 	],
 	"display" : function() {
@@ -192,7 +194,7 @@ bio.display();
 work.display();
 projects.display();
 education.display();
-
+$("mapDiv").append(googleMap);
 
 /*$("#header").append(internationalizeButton);
 
@@ -204,5 +206,3 @@ function inName(name) {
 
 	return changeName[0] + " " + changeName[1];
 }*/
-
-//$("mapDiv").append(googleMap);

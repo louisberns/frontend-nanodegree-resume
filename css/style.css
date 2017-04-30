@@ -21,7 +21,7 @@ h6 {
 .education-entry,
 .work-entry,
 .project-entry {
-  padding: 0 5%;
+  padding: 1% 0 3%;
 }
 
 h1 {
@@ -29,10 +29,11 @@ h1 {
   /*color: #f5a623;*/
   line-height: 48px;
   display: inline;
+  font-weight: 500;
 }
 
 h2 {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 24px;
   /*color: #999;*/
   line-height: 29px;
@@ -57,7 +58,7 @@ h2,
 h3,
 h4,
 h5 {
-  padding: 10px 5%;
+  padding: 10px 0%;
 
 }
 
@@ -82,7 +83,6 @@ h5 {
 p {
   font-size: 14px;
   color: #333;
-  line-height: 21px;
 }
 
 a {
@@ -90,6 +90,10 @@ a {
   text-decoration: none;
   margin-top: 10px;
   display: block;
+}
+
+#main {
+  line-height: 1.5em;
 }
 
 .welcome-message {
@@ -102,6 +106,10 @@ a {
 #skills-h3 {
   /*color: #f5ae23;*/
   display: none;
+}
+
+#holder {
+  padding: 0;
 }
 
 .orange {
@@ -138,7 +146,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 10px;
 }
 
@@ -150,23 +158,39 @@ a {
 }
 
 .center-content {
-  padding: 2.5% 5%;
+  padding: 1.5% 10%;
 }
 
+
+/*List Style*/
 ul {
   list-style-type: none;
+}
+
+.ordered-list {
+  list-style-type: circle;
+  margin-left: 5%;
+}
+
+.list-style {
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+.biopic-container {
+  width: 200px;
+  height: auto;
 }
 
 .biopic {
   float: left;
   padding: 10px;
-  width: 200px;
+  width: 100%;
   border-radius: 50%;
-  display: none;
 }
 
-img {
-  padding: 10px;
+.project-img {
+  padding: 10px 10px 0 0;
 }
 
 span {
@@ -186,7 +210,7 @@ span {
 }
 
 @media only screen and (max-width:900px) {
-  .biopic {
+  .biopic-container {
     width: 175px;
   }
 }
@@ -195,8 +219,9 @@ span {
   #lets-connect {
     margin-top: 10%;
   }
-  .biopic {
+  .biopic-container {
     width: 150px;
+    margin: 0 auto;
   }
   .welcome-message {
     display: none;
@@ -206,13 +231,14 @@ span {
 #map {
   display: block;
   height: 100%;
-  margin: 0 5%;
+  margin: 0;
 }
 
 #mapDiv {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
+  box-sizing: border-box;
 }
 
 @media only screen and (min-width: 750px) {

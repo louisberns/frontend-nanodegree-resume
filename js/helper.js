@@ -3,13 +3,13 @@ var HTMLheaderRole = '<span>%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="white-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="white-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><a href="#" class="contact-url"><span class="white-text">email</span><span class="white-text">%data%</span><a/></li>';
-var HTMLlinkedin = '<li class="flex-item"><a href="#" class="contact-url"><span class="white-text">linkedin</span><span class="white-text">%data%</span><a/></li>';
-var HTMLgithub = '<li class="flex-item"<a href="#" class="contact-url"><span class="white-text">github</span><span class="white-text">%data%</span><a/></li>';
-var HTMLblog = '<li class="flex-item"><a href="#" class="contact-url"><span class="white-text">blog</span><span class="white-text">%data%</span><a/></li>';
-var HTMLlocation = '<li class="flex-item"><span class="white-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><a href="#" id="contact-email" class="contact-url"><span class="white-text">email</span><span class="white-text">%data%</span></li>';
+var HTMLlinkedin = '<li class="flex-item"><a href="#" id="contact-linkedin" class="contact-url"><span class="white-text">linkedin</span><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><a href="#" id="contact-github" class="contact-url"><span class="white-text">github</span><span class="white-text">%data%</span></li>';
+var HTMLblog = '<li class="flex-item"><a href="#" class="contact-url"><span class="white-text">blog</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><a href="#" id="contact-location"><span class="white-text">location</span><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
+var HTMLbioPic = '<div class="biopic-container"><img src="%data%" class="biopic"></div>';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
@@ -21,21 +21,21 @@ var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
-var HTMLworkOrderedTitle = '<ul class="work-list"></ul>';
+var HTMLworkOrderedTitle = '<ul class="ordered-list"></ul>';
 var HTMLworkBulletPoints = '<li>%data%</li>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<h3>%data%</h3>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
-var HTMLprojectURL = '<a href="#">%data%</a>';
-var HTMLprojectOrdered = '<ul class="project-bullet-list"></ul>';
+var HTMLprojectImage = '<img src="%data%" class="project-img">';
+var HTMLprojectURL = '<a href="#" class="project-link">%data%</a>';
+var HTMLprojectOrdered = '<ul class="ordered-list"></ul>';
 var HTMLprojectBullets = '<li>%data%</li>'
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolDegree = '  - %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div><br>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<div><em>Major: %data%</em></div>';
@@ -60,8 +60,8 @@ var map;    // declares a global map variable
 /*
 Start here! initializeMap() is called when page is loaded.
 */
-
 var locations;
+
 function initMap() {
 
 

@@ -7,17 +7,10 @@ var bio = {
 	"contacts" : [
 		{
 			"mobile" : "+55 044 9 9972-5926",
-			"email" : "louisuntitled@gmail.com",
-			"github" : "/louisberns",
-			"linkedin" : "/in/louisberns",
-			"location" : "Maringá-PR - Brazil"
-		}
-	],
-	"contactsURL" : [
-		{
-			"emailURL" : "louisuntitled@gmail.com",
-			"githubURL" : "https://github.com/louisberns",
-			"linkedinURL" : "http://www.linkedin.com/in/louisberns"
+			"email" : ["louisuntitled@gmail.com", "mailto:louisuntitled@gmail.com"],
+			"github" : ["/louisberns", "https://github.com/louisberns"],
+			"linkedin" : ["/in/louisberns", "http://www.linkedin.com/in/louisberns"],
+			"location" : "São Paulo-PR - Brazil"
 		}
 	],
 	"skills" : [ "HTML/CSS", "Javascript/jQuery", "Project Management", "SCRUM", "Inkscape" ],
@@ -36,13 +29,19 @@ var bio = {
 
 		bio.contacts.forEach(function(contact) {
 			/*var formattedMobile = HTMLmobile.replace("%data%", contact.mobile);*/
-			var formattedEmail = HTMLemail.replace("%data%", contact.email);
-			var formattedlinkedin = HTMLlinkedin.replace("%data%", contact.linkedin);
-			var formattedGitHub = HTMLgithub.replace("%data%", contact.github);
+			var formattedEmail = HTMLemail.replace("%data%", contact.email[0]);
+			var formattedlinkedin = HTMLlinkedin.replace("%data%", contact.linkedin[0]);
+			var formattedGitHub = HTMLgithub.replace("%data%", contact.github[0]);
 			var formattedLocation = HTMLlocation.replace("%data%", contact.location);
 			var displayContacts = formattedEmail + formattedlinkedin + formattedGitHub + formattedLocation;
 
 			$("#topContacts").append(displayContacts);
+
+			$("#contact-email").attr("href", contact.email[1]);
+			$("#contact-linkedin").attr("href", contact.linkedin[1]);
+			$("#contact-github").attr("href", contact.github[1]);
+			$("#contact-location").attr("href", "#mapDiv");
+			$(".contact-url").attr("target", "_blank");
 		});
 		if (bio.skills.length > 0) {
 			$("#header").append(HTMLskillsStart);
@@ -52,34 +51,25 @@ var bio = {
 				$("#skills").append(formattedSkills);
 			});
 		}
-
-		for (var x = 0; bio.contactsURL.length > x; x++) {
-			switch (bio.contactsURL[x]) {
-				case bio.contactsURL[0]:
-					var formattedURL = bio.contactsURL[x];
-					$(".contact-url").attr("href", formattedURL);
-					break;
-				case bio.contactsURL[1]:
-					var formattedURL = bio.contactsURL[x];
-					$(".contact-url").attr("href", formattedURL);
-					break;
-				case bio.contactsURL[2]:
-					var formattedURL = bio.contactsURL[x];
-					$(".contact-url").attr("href", formattedURL);
-					break;
-			}
-		}
 	}
 }
 
 var education = {
 	"schools" : [
 		{
+			"name" : "Udacity",
+			"location" : "San Francisco-CA, USA",
+			"degree" : "Nanodegree",
+			"majors" : ["Front-end Developer"],
+			"dates" : "JAN/2017 - JUL/2017",
+			"url" : "some-url"
+		},
+		{
 			"name" : "Unicesumar",
 			"location" : "Maringá-PR, Brazil",
-			"degree" : "BS",
+			"degree" : "Bachelor Degree",
 			"majors" : ["Administration"],
-			"dates" : "2013 to 2017",
+			"dates" : "DEZ/2013 - JUL/2017",
 			"url" : "some-url"
 		}
 	],
@@ -87,25 +77,25 @@ var education = {
 		{
 			"title" : "Git Hub",
 			"school" : "Udacity",
-			"dates" : "2017",
+			"dates" : "JAN/2017",
 			"url" : "some-url"
 		},
 		{
 			"title" : "JavaScript Basics",
 			"school" : "Udacity",
-			"dates" : "2017",
-			"url" : "some-url"
-		},
-		{
-			"title" : "Programming Logic",
-			"school" : "Soft Blue",
-			"dates" : "2013",
+			"dates" : "DEZ/2016",
 			"url" : "some-url"
 		},
 		{
 			"title" : "HTML & CSS",
 			"school" : "Codecademy",
-			"dates" : "2013",
+			"dates" : "MAY/2013 - SEP/2013",
+			"url" : "some-url"
+		},
+		{
+			"title" : "Programming Logic",
+			"school" : "Soft Blue",
+			"dates" : "MAR/2013 - AUG/2013",
 			"url" : "some-url"
 		}
 	],
@@ -189,7 +179,7 @@ var work = {
 			$(".work-entry:last").append(forTitleEmplo);
 			for (x = 0; job.bulletPoints.length > x; x++) {
 					var formattedBulletPoints = HTMLworkBulletPoints.replace("%data%", job.bulletPoints[x]);
-					$(".work-list:last").append(formattedBulletPoints);
+					$(".ordered-list:last").append(formattedBulletPoints);
 			}
 		});
 	}
@@ -228,7 +218,8 @@ var projects = {
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.project[n].title);
 			var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.project[n].dates);
 			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.project[n].description);
-			var formattedProjectURL = HTMLprojectURL.replace("%data%", projects.project[n].url);
+			var formattedProjectLink = HTMLprojectURL.replace("%data%", "ENTER SITE");
+			var formattedProjectURL = projects.project[n].url;
 			var formattedProjectImages = [];
 			var formattedProjectBullets = [];
 
@@ -237,35 +228,30 @@ var projects = {
 
 			for (var x = 0; projects.project[n].bulletPoints.length > x; x++) {
 				formattedProjectBullets = HTMLprojectBullets.replace("%data%", projects.project[n].bulletPoints[x]);
-				$(".project-bullet-list:last").append(formattedProjectBullets);
+				$(".ordered-list:last").append(formattedProjectBullets);
 			}
-
-			$(".project-entry:last").append(formattedProjectURL);
 
 			for (var c = 0; projects.project[n].images.length > c; c++) {
 				formattedProjectImages = HTMLprojectImage.replace("%data%", projects.project[n].images[c]);
 				$(".project-entry:last").append(formattedProjectImages);
 			}
+			$(".project-entry:last").append(formattedProjectLink);
+			$(".project-link:last").attr({
+				href: formattedProjectURL,
+				target: "_blank"
+			});
 		}
 	}
 }
 
-
 /*Insert content*/
-
 bio.display();
 work.display();
 projects.display();
 education.display();
 $("#mapDiv").append(googleMap);
 
-/*$("#header").append(internationalizeButton);
-
-function inName(name) {
-	var changeName = [];
-	changeName = name.split(" ");
-	changeName[0] = changeName[0].slice(0, 1).toUpperCase() + changeName[0].slice(1).toLowerCase();
-	changeName[1] = changeName[1].toUpperCase();
-
-	return changeName[0] + " " + changeName[1];
-}*/
+/*Insert Style*/
+$("#main").children().attr("class", "center-content");
+$(".center-content:nth-child(2)").attr("id", "holder");
+$(".ordered-list").children().attr("class", "list-style");

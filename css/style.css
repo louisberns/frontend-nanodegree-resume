@@ -161,6 +161,7 @@ ul {
   float: left;
   padding: 10px;
   width: 200px;
+  border-radius: 50%;
   display: none;
 }
 

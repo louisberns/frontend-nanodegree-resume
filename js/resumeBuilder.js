@@ -375,6 +375,3 @@ $("#main").children().attr("class", "center-content");
 $(".center-content:nth-child(2)").attr("id", "holder");
 $(".ordered-list").children().attr("class", "list-style");
 $(".center-content:nth-child(odd)").addClass("gray");
-
-/*Actions*/
-//$(".button").click(function () {});

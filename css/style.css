@@ -25,6 +25,11 @@ h6 {
   padding: 1% 0 3%;
 }
 
+.education-entry,
+.online-entry {
+  text-align: center;
+}
+
 h1 {
   font-size: 40px;
   line-height: 48px;
@@ -78,11 +83,15 @@ h5 {
   vertical-align: text-bottom;
 }
 
+.title-work,
+.title-project,
 .title-education,
 .title-online {
   font-size: 20px;
   font-weight: 500;
-  font-style: italic;
+  font-style: normal;
+  color: #8323ff;
+  padding: 5px 0;
 }
 
 #online-header {
@@ -96,16 +105,25 @@ h5 {
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: left;
 }
 
-.location-text {
+.location-text,
+.location-education {
   font-style: italic;
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: right;
+}
 
+.location-text {
+  float: right;
+}
+
+.work-paragraph,
+.ordered-list,
+.project-paragraph {
+  text-align: justify;
+  word-spacing: -0.03em;
 }
 
 p {
@@ -157,7 +175,7 @@ a {
 .skill-item {
   line-height: 2em;
   width: 20%;
-  padding: 0 10px;
+  padding: 5px 10px;
   margin: 0 auto;
 }
 
@@ -180,6 +198,55 @@ a {
 
 #holder {
   padding: 0;
+}
+
+.button {
+  background-color: #8323FF;
+  color: #fff;
+  max-width: 230px;
+  margin: 0 auto;
+  border-radius: 2px;
+  font-size: 18px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .39);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button:hover {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .39);
+  transform: translate();
+}
+
+/*Float Action Button - FAB*/
+#fab-button {
+  position: fixed;
+  bottom: 24px;
+  right: 0px;
+  width: 56px;
+  height: 56px;
+  padding: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+#fab-image {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .39);
+  transition: 0.2s;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+#fab-image:hover {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .39);
+}
+
+.show {
+  opacity: 1 !important;
 }
 
 .orange {
@@ -245,6 +312,7 @@ ul {
 .list-style {
   font-size: 14px;
   line-height: 1.5em;
+  padding: 0.5em 0;
 }
 
 .biopic-container {
@@ -260,8 +328,21 @@ ul {
   border-radius: 50%;
 }
 
+/*Work style*/
+.work-item {
+  padding: 5px 0;
+}
+
+/*Project style*/
+.project-img-container {
+  display: inline-block;
+  max-width: 300px;
+  padding: 10px 20px 5px 0;
+}
+
 .project-img {
-  padding: 10px 10px 0 0;
+  width: 100%;
+  border: #646464 solid 1px;
 }
 
 span {
@@ -303,16 +384,34 @@ span {
   margin: 0;
 }
 
-#mapDiv {
+#map-div {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
   box-sizing: border-box;
 }
 
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
-    display: block;
+@media only screen and (max-width: 550px) {
+  .skill-item {
+    width: 40%;
+  }
+  .flex-box {
+    flex-direction: column;
+  }
+  #name,
+  #role {
+    font-size: 7vw;
+  }
+  #top-contacts {
+    font-size: 14px;
+  }
+  #lets-connect {
+    margin-top: 15%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #lets-connect {
+    margin-top: 20%;
   }
 }

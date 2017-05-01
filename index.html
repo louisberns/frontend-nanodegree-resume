@@ -10,10 +10,10 @@
 <body>
   <div id="main">
     <div id="header" class="center-content clear-fix">
-      <ul id="topContacts" class="flex-box"></ul>
+      <ul id="top-contacts" class="flex-box"></ul>
     </div>
     <div style="clear: both;"></div>
-    <div id="workExperience">
+    <div id="work-experience">
       <h2>Work Experience</h2>
     </div>
     <div id="projects">
@@ -22,14 +22,15 @@
     <div id="education">
       <h2>Education</h2>
     </div>
-    <div id="mapDiv">
+    <div id="map-div">
       <h2>Where I've Lived and Worked</h2>
     </div>
-    <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text">Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
+    <!--<div id="lets-connect" class="dark-gray">
+      <h2 class="button center-text">CONTACT ME</h2>
+        <ul id="footer-contacts" class="flex-box">
       </ul>
-    </div>
+    </div>-->
+    <div id="fab-button"></div>
   </div>
 
   <script src="js/jQuery.js"></script>
@@ -44,16 +45,16 @@
 
   <script>
       if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.display = 'block';
-      document.getElementById('topContacts').style.background = '#000';
+      document.getElementById('top-contacts').style.display = 'block';
+      document.getElementById('top-contacts').style.background = '#000';
     }
     if(document.getElementsByTagName('h1').length === 0) {
       document.getElementById('header').style.display = 'block';
       document.getElementById('header').style.background = '#000';
     }
     if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'block';
-      document.getElementById('workExperience').style.background = '#000';
+      document.getElementById('work-experience').style.display = 'block';
+      document.getElementById('work-experience').style.background = '#000';
     }
     if(document.getElementsByClassName('project-entry').length === 0) {
       document.getElementById('projects').style.display = 'block';
@@ -68,8 +69,8 @@
       document.getElementById('lets-connect').style.background = '#000';
     }
     if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'block';
-      document.getElementById('mapDiv').style.background = '#000';
+      document.getElementById('map-div').style.display = 'block';
+      document.getElementById('map-div').style.background = '#000';
     }
   </script>
 </body>

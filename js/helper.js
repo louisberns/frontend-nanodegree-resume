@@ -18,19 +18,19 @@ var HTMLskills = '<li class="flex-item skill-item"><div class="white-text skill-
 var HTMLskillsValue = '<div class="skill-value"><div class="skill-range"></div></div></li>'
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkEmployer = '<div class="work-item"><br><h3 class="title-work">%data%';
+var HTMLworkTitle = ' - %data%</h3>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
-var HTMLworkOrderedTitle = '<ul class="ordered-list"></ul>';
+var HTMLworkDescription = '<p class="work-paragraph">%data%</p>';
+var HTMLworkOrderedTitle = '<ul class="ordered-list"></ul></div>';
 var HTMLworkBulletPoints = '<li>%data%</li>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<h3>%data%</h3>';
+var HTMLprojectTitle = '<h3 class="title-project">%data%</h3>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%" class="project-img">';
+var HTMLprojectDescription = '<p class="project-paragraph">%data%</p>';
+var HTMLprojectImage = '<div class="project-img-container"><img src="%data%" class="project-img"></div>';
 var HTMLprojectURL = '<a href="#" class="project-link">%data%</a>';
 var HTMLprojectOrdered = '<ul class="ordered-list"></ul>';
 var HTMLprojectBullets = '<li>%data%</li>'
@@ -39,7 +39,7 @@ var HTMLschoolStart = '<div class="education-entry">';
 var HTMLschoolName = '<div><h3 class="title-education">%data%';
 var HTMLschoolDegree = '  - %data%</h3>';
 var HTMLschoolDates = '<div class="date-text">%data%</div></div><br>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
+var HTMLschoolLocation = '<div class="location-education">%data%</div>';
 var HTMLschoolMajor = '<div><em>Major: %data%</em></div>';
 
 var HTMLonlineClasses = '<div class="online-entry"><h3 id="online-header">Online Classes</h3>';
@@ -49,6 +49,7 @@ var HTMLonlineDates = '<div class="date-text">%data%</div></div><br>';
 var HTMLonlineURL = '<br><a href="#">%data%</a></div>';
 
 var internationalizeButton = '<button>Internationalize</button>';
+var FABbutton = '<img src="#" id="fab-image">'
 var googleMap = '<div id="map"></div>';
 
 

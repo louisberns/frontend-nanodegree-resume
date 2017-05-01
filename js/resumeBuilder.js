@@ -10,7 +10,7 @@ var bio = {
 			"email" : ["louisuntitled@gmail.com", "mailto:louisuntitled@gmail.com", "images/email.svg"],
 			"github" : ["/louisberns", "https://github.com/louisberns", "images/github.svg"],
 			"linkedin" : ["/in/louisberns", "http://www.linkedin.com/in/louisberns", "images/linkedin.svg"],
-			"location" : ["São Paulo-PR - Brazil", "#mapDiv", "images/location.svg"]
+			"location" : ["São Paulo-PR - Brazil", "#map-div", "images/location.svg"]
 		}
 	],
 	"skills" : [ "HTML/CSS", "Javascript/jQuery", "Project Management", "SCRUM", "Inkscape" ],
@@ -35,7 +35,7 @@ var bio = {
 			var formattedLocation = HTMLlocation.replace("%data%", contact.location[0]);
 			var displayContacts = formattedEmail + formattedlinkedin + formattedGitHub + formattedLocation;
 
-			$("#topContacts").append(displayContacts);
+			$("#top-contacts").append(displayContacts);
 
 			$("#contact-email").attr("href", contact.email[1]);
 			$("#contact-linkedin").attr("href", contact.linkedin[1]);
@@ -190,7 +190,7 @@ var education = {
 			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
 			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", school.majors);
 			var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
-			var displaySchool = formattedSchoolName + formattedSchoolLocation + formattedSchoolDegree + formattedSchoolMajor + formattedSchoolDates;
+			var displaySchool = formattedSchoolName + formattedSchoolDegree + formattedSchoolMajor + formattedSchoolLocation + formattedSchoolDates;
 
 			$(".education-entry:last").append(displaySchool);
 		});
@@ -250,7 +250,7 @@ var work = {
 		}
 	],
 	"display" : function () {
-		$("#workExperience").append(HTMLworkStart);
+		$("#work-experience").append(HTMLworkStart);
 
 		work.jobs.forEach(function(job){
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
@@ -273,7 +273,7 @@ var projects = {
 	"project" : [
 		{
 			"title" : "Alphagreen",
-			"dates" : "2017",
+			"dates" : "JAN/2017",
 			"description" : "Fully responsible institucional site for a real estate business, including available real estate deals gallery \n Developed site with stages of validation with the end user and collecting feedbacks for improve User Experience \n Clean code, no frameworks for stylish web design and minimal content making easier user access in any device or connection",
 			"bulletPoints" : [
 				"Fully responsible institucional site for a real estate business, including available real estate deals gallery.",
@@ -281,11 +281,11 @@ var projects = {
 				"Clean code, no frameworks for stylish web design and minimal content making easier user access in any device or connection."
 			],
 			"url" : "http://www.negociosalphagreen.com.br/",
-			"images" : ["images/197x148.gif", "images/197x148.gif"]
+			"images" : ["images/projects/alphagreen-one.png", "images/projects/alphagreen-two.png"]
 		},
 		{
 			"title" : "Oh Yeah",
-			"dates" : "2017",
+			"dates" : "MAR/2017",
 			"description" : "Fully responsible e-commerce with design patterns from Google for a target market \n Developed site with stages of validation with the end user and collecting feedbacks for improve User Experience \n Constant market and results analysis for applying improvements in market strategies",
 			"bulletPoints" : [
 				"Fully responsible e-commerce with design patterns from Google for a target market.",
@@ -293,7 +293,7 @@ var projects = {
 				"Constant market and results analysis for applying improvements in market strategies."
 			],
 			"url" : "http://www.ohyeahshop.com.br/",
-			"images" : ["images/197x148.gif", "images/197x148.gif"]
+			"images" : ["images/projects/ohyeah-one.png", "images/projects/ohyeah-two.png"]
 		}
 	],
 	"display" : function() {
@@ -328,16 +328,53 @@ var projects = {
 	}
 }
 
+var floatActionButton = {
+	"source": "images/fab-button.svg",
+	"display": function () {
+		$("#fab-button").append(FABbutton);
+		var fabImage = $("#fab-image").attr("src", floatActionButton.source);
+		return fabImage;
+	},
+	"backTop": function () {
+		if ($('#fab-button').length) {
+	    var scrollTrigger = 100, // px
+	        backToTop = function () {
+	            var scrollTop = $(window).scrollTop();
+	            if (scrollTop > scrollTrigger) {
+	                $('#fab-button').addClass('show');
+	            } else {
+	                $('#fab-button').removeClass('show');
+	            }
+	        };
+	    backToTop();
+	    $(window).on('scroll', function () {
+	        backToTop();
+	    });
+	    $('#fab-button').on('click', function (e) {
+	        e.preventDefault();
+	        $('html,body').animate({
+	            scrollTop: 0
+	        }, 700);
+	    });
+		}
+	}
+}
+
 /*Insert content*/
 bio.display();
 skills.display();
 work.display();
 projects.display();
 education.display();
-$("#mapDiv").append(googleMap);
+floatActionButton.display();
+floatActionButton.backTop();
+$("#map-div").append(googleMap);
 
 /*Insert Style*/
 $("#main").children().attr("class", "center-content");
 $(".center-content:nth-child(2)").attr("id", "holder");
 $(".ordered-list").children().attr("class", "list-style");
 $(".center-content:nth-child(odd)").addClass("gray");
+
+/*Actions*/
+//$(".button").click(function () {});

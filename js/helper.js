@@ -67,7 +67,7 @@ function initMap() {
   function locationFinder() {
     var locations = [];
 
-    locations.push(bio.contacts[0].location);
+    locations.push(bio.contacts[0].location[0]);
 
     education.schools.forEach(function(school){
       locations.push(school.location);

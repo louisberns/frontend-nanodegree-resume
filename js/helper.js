@@ -15,7 +15,7 @@ var HTMLwelcomeMsg = '<br><div class="welcome-message">%data%</div><br>';
 var HTMLskillsStart = '<div id="skills-entry"><ul id="skills" class="flex-column"></ul></div>';
 var HTMLskillsTitle = '<br><h3 id="skills-h3">Skills at a Glance:</h3>';
 var HTMLskills = '<li class="flex-item skill-item"><div class="white-text skill-title">%data%</div>';
-var HTMLskillsValue = '<div class="skill-value"><div class="skill-range"></div></div></li>'
+var HTMLskillsValue = '<div class="skill-value"><div class="skill-range"></div></div></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<div class="work-item"><br><h3 class="title-work">%data%';
@@ -33,7 +33,7 @@ var HTMLprojectDescription = '<p class="project-paragraph">%data%</p>';
 var HTMLprojectImage = '<div class="project-img-container"><img src="%data%" class="project-img"></div>';
 var HTMLprojectURL = '<a href="#" class="project-link">%data%</a>';
 var HTMLprojectOrdered = '<ul class="ordered-list"></ul>';
-var HTMLprojectBullets = '<li>%data%</li>'
+var HTMLprojectBullets = '<li>%data%</li>';
 
 var HTMLschoolStart = '<div class="education-entry">';
 var HTMLschoolName = '<div><h3 class="title-education">%data%';
@@ -49,7 +49,7 @@ var HTMLonlineDates = '<div class="date-text">%data%</div></div><br>';
 var HTMLonlineURL = '<br><a href="#">%data%</a></div>';
 
 var internationalizeButton = '<button>Internationalize</button>';
-var FABbutton = '<img src="#" id="fab-image">'
+var FABbutton = '<img src="#" id="fab-image">';
 var googleMap = '<div id="map"></div>';
 
 

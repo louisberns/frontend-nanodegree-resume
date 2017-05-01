@@ -55,7 +55,7 @@ var bio = {
 			$("#contact-location").children().attr("src", displayImages[3]);
 		});
 	}
-}
+};
 
 var skills = {
 	"skill": [
@@ -134,7 +134,7 @@ var skills = {
 		}
 		callRanges();
 	}
-}
+};
 
 var education = {
 	"schools" : [
@@ -208,7 +208,7 @@ var education = {
 		});
 
 	}
-}
+};
 
 var work = {
 	"jobs" : [
@@ -267,7 +267,7 @@ var work = {
 			}
 		});
 	}
-}
+};
 
 var projects = {
 	"project" : [
@@ -326,7 +326,7 @@ var projects = {
 			});
 		}
 	}
-}
+};
 
 var floatActionButton = {
 	"source": "images/fab-button.svg",
@@ -358,7 +358,7 @@ var floatActionButton = {
 	    });
 		}
 	}
-}
+};
 
 /*Insert content*/
 bio.display();

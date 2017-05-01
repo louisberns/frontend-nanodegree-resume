@@ -20,13 +20,13 @@ h6 {
 
 .education-entry,
 .work-entry,
-.project-entry {
+.project-entry,
+.online-entry {
   padding: 1% 0 3%;
 }
 
 h1 {
   font-size: 40px;
-  /*color: #f5a623;*/
   line-height: 48px;
   display: inline;
   font-weight: 500;
@@ -35,7 +35,6 @@ h1 {
 h2 {
   font-weight: 500;
   font-size: 24px;
-  /*color: #999;*/
   line-height: 29px;
   padding: 10px;
 }
@@ -43,14 +42,12 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  /*color: #000;*/
-  line-height: 22px;
+  line-height: 28px;
 }
 
 h4 {
   font-weight: bold;
   font-size: 14px;
-  /*color: #4a4a4a;*/
   line-height: 17px;
 }
 
@@ -62,6 +59,37 @@ h5 {
 
 }
 
+#name {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+#role {
+  font-size: 35px;
+  letter-spacing: 2px;
+  padding-left: 20px;
+  font-weight: 300;
+}
+
+.contact-img {
+  width: 24px;
+  padding: 0 10px;
+  margin: 0;
+  vertical-align: text-bottom;
+}
+
+.title-education,
+.title-online {
+  font-size: 20px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+#online-header {
+  font-style: normal;
+  font-weight: 500;
+  padding: 10px 0 20px;
+}
 
 .date-text {
   font-style: italic;
@@ -101,11 +129,53 @@ a {
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+#skills {
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#skills-entry {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 0 0 20px 0;
 }
 
 #skills-h3 {
-  /*color: #f5ae23;*/
-  display: none;
+  display: block;
+}
+
+.skill-item {
+  line-height: 2em;
+  width: 20%;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.skill-value {
+  width: 100%;
+  max-width: 100%;
+  height: 7px;
+  background-color: #fafafa;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: transparent solid 1px;
+}
+
+.skill-range {
+  background-color: #8323ff;
+  height: inherit;
+  transition: width 2s;
+  border-radius: 20px 0 0 20px;
 }
 
 #holder {
@@ -126,7 +196,7 @@ a {
 }
 
 .gray {
-  background-color: #f3f3f3;
+  background-color: #f4f4f4;
   padding-bottom: 10px;
   clear: both;
 }
@@ -137,7 +207,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #484848 !important;
   color: #fff;
 }
 
@@ -178,13 +248,14 @@ ul {
 }
 
 .biopic-container {
-  width: 200px;
-  height: auto;
+  width: 220px;
+  height: 220px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .biopic {
-  float: left;
-  padding: 10px;
   width: 100%;
   border-radius: 50%;
 }
@@ -221,10 +292,8 @@ span {
   }
   .biopic-container {
     width: 150px;
+    height: 150px;
     margin: 0 auto;
-  }
-  .welcome-message {
-    display: none;
   }
 }
 

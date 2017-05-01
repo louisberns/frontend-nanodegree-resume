@@ -7,10 +7,10 @@ var bio = {
 	"contacts" : [
 		{
 			"mobile" : "+55 044 9 9972-5926",
-			"email" : ["louisuntitled@gmail.com", "mailto:louisuntitled@gmail.com"],
-			"github" : ["/louisberns", "https://github.com/louisberns"],
-			"linkedin" : ["/in/louisberns", "http://www.linkedin.com/in/louisberns"],
-			"location" : "São Paulo-PR - Brazil"
+			"email" : ["louisuntitled@gmail.com", "mailto:louisuntitled@gmail.com", "images/email.svg"],
+			"github" : ["/louisberns", "https://github.com/louisberns", "images/github.svg"],
+			"linkedin" : ["/in/louisberns", "http://www.linkedin.com/in/louisberns", "images/linkedin.svg"],
+			"location" : ["São Paulo-PR - Brazil", "#mapDiv", "images/location.svg"]
 		}
 	],
 	"skills" : [ "HTML/CSS", "Javascript/jQuery", "Project Management", "SCRUM", "Inkscape" ],
@@ -32,7 +32,7 @@ var bio = {
 			var formattedEmail = HTMLemail.replace("%data%", contact.email[0]);
 			var formattedlinkedin = HTMLlinkedin.replace("%data%", contact.linkedin[0]);
 			var formattedGitHub = HTMLgithub.replace("%data%", contact.github[0]);
-			var formattedLocation = HTMLlocation.replace("%data%", contact.location);
+			var formattedLocation = HTMLlocation.replace("%data%", contact.location[0]);
 			var displayContacts = formattedEmail + formattedlinkedin + formattedGitHub + formattedLocation;
 
 			$("#topContacts").append(displayContacts);
@@ -40,17 +40,99 @@ var bio = {
 			$("#contact-email").attr("href", contact.email[1]);
 			$("#contact-linkedin").attr("href", contact.linkedin[1]);
 			$("#contact-github").attr("href", contact.github[1]);
-			$("#contact-location").attr("href", "#mapDiv");
+			$("#contact-location").attr("href", contact.location[1]);
 			$(".contact-url").attr("target", "_blank");
+
+			var emailImage = contact.email[2];
+			var linkedinImage = contact.linkedin[2];
+			var githubImage = contact.github[2];
+			var locationImage = contact.location[2];
+			var displayImages = [emailImage, linkedinImage, githubImage, locationImage];
+
+			$("#contact-email").children().attr("src", displayImages[0]);
+			$("#contact-linkedin").children().attr("src", displayImages[1]);
+			$("#contact-github").children().attr("src", displayImages[2]);
+			$("#contact-location").children().attr("src", displayImages[3]);
 		});
-		if (bio.skills.length > 0) {
-			$("#header").append(HTMLskillsStart);
-			bio.skills.forEach(function(n){
-				var skill = n;
-				var formattedSkills = HTMLskills.replace("%data%", skill);
-				$("#skills").append(formattedSkills);
-			});
+	}
+}
+
+var skills = {
+	"skill": [
+		{
+			"title" : "HTML",
+			"value" : 100
+		},
+		{
+			"title" : "CSS",
+			"value" : 100
+		},
+		{
+			"title" : "JavaScript",
+			"value" : 40
+		},
+		{
+			"title" : "jQuery",
+			"value" : 60
+		},
+		{
+			"title" : "Git",
+			"value" : 80
+		},
+		{
+			"title" : "GruntJS",
+			"value" : 40
+		},
+		{
+			"title" : "Inkscape",
+			"value" : 40
+		},
+		{
+			"title" : "UX/UI",
+			"value" : 80
 		}
+	],
+	"display" : function () {
+		$("#header").append(HTMLskillsStart);
+		$("#skills-entry").prepend	(HTMLskillsTitle);
+		var setValue = [];
+		var skillValue = [];
+		for (var n = 0; skills.skill.length > n; n++) {
+			var formattedSkills = HTMLskills.replace("%data%", skills.skill[n].title);
+
+			var valueID = "skill-value" + n.toString();
+			skillValue.push(skills.skill[n].value);
+
+			var displaySkills = formattedSkills + HTMLskillsValue;
+			$("#skills:last").append(displaySkills);
+			$(".skill-value:last").children().attr("id", valueID);
+
+			setValue.push("#" + valueID.toString());
+		}
+
+		function animatedRanges (classValue, skillValue, interval) {
+			var elem = $(classValue);
+			var width = 0;
+			var id = setInterval(frame, interval);
+			function frame() {
+				if (width >= skillValue) {
+					clearInterval(id);
+				} else {
+					width++;
+					elem.css("width", width + "%");
+					if (width === 100) {
+						$(classValue).css("border-radius", "10px");
+					}
+				}
+			}
+		}
+		function callRanges () {
+			for (var n = 0; setValue.length > n; n++) {
+				var skillMove = (n + 1)*2;
+				animatedRanges(setValue[n], skillValue[n], skillMove);
+			}
+		}
+		callRanges();
 	}
 }
 
@@ -113,6 +195,8 @@ var education = {
 			$(".education-entry:last").append(displaySchool);
 		});
 
+		$("#education").append(HTMLonlineClasses);
+
 		education.onlineCourses.forEach(function(course) {
 			var formattedTitle = HTMLonlineTitle.replace("%data%", course.title);
 			var formattedSchool = HTMLonlineSchool.replace("%data%", course.school);
@@ -120,7 +204,7 @@ var education = {
 			/*var formattedURL = HTMLonlineURL.replace("%data%", course.url);*/
 			var displayCourses = formattedTitle + formattedSchool + formattedDates;
 
-			$(".education-entry:last").append(displayCourses);
+			$(".online-entry:last").append(displayCourses);
 		});
 
 	}
@@ -246,6 +330,7 @@ var projects = {
 
 /*Insert content*/
 bio.display();
+skills.display();
 work.display();
 projects.display();
 education.display();
@@ -255,3 +340,4 @@ $("#mapDiv").append(googleMap);
 $("#main").children().attr("class", "center-content");
 $(".center-content:nth-child(2)").attr("id", "holder");
 $(".ordered-list").children().attr("class", "list-style");
+$(".center-content:nth-child(odd)").addClass("gray");

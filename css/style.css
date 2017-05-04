@@ -348,20 +348,30 @@ span {
   padding: 5px;
 }
 
-#lets-connect {
-  text-align: center;
+#map {
+  display: block;
+  margin: 0;
+  height: 100%
+}
+
+#footer {
+  background-color: #212121;
+  padding-top: 1%;
 }
 
 /* Media queries to handle various device widths */
 @media only screen and (max-width: 1024px) {
-  #lets-connect {
-    margin-top: 5%;
+  #map {
+    height: 95%;
   }
 }
 
 @media only screen and (max-width:900px) {
   .biopic-container {
     width: 175px;
+  }
+  #map {
+    height: 90%;
   }
 }
 
@@ -374,12 +384,6 @@ span {
     height: 150px;
     margin: 0 auto;
   }
-}
-
-#map {
-  display: block;
-  height: 100%;
-  margin: 0;
 }
 
 #map-div {
@@ -403,8 +407,8 @@ span {
   #top-contacts {
     font-size: 14px;
   }
-  #lets-connect {
-    margin-top: 15%;
+  #map {
+    height: 80%;
   }
 }
 

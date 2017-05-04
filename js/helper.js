@@ -3,13 +3,13 @@ var HTMLheaderRole = '<span id="role">%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="white-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><a href="#" id="contact-email" class="contact-url"><img src="#" class="contact-img"></img><span class="white-text">%data%</span></li>';
-var HTMLlinkedin = '<li class="flex-item"><a href="#" id="contact-linkedin" class="contact-url"><img src="#" class="contact-img"></img><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><a href="#" id="contact-github" class="contact-url"><img src="#" class="contact-img"></img><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><a href="#" class="contact-email" class="contact-url"><img src="#" class="contact-img"></img><span class="white-text">%data%</span></li>';
+var HTMLlinkedin = '<li class="flex-item"><a href="#" class="contact-linkedin" class="contact-url"><img src="#" class="contact-img"></img><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><a href="#" class="contact-github" class="contact-url"><img src="#" class="contact-img"></img><span class="white-text">%data%</span></li>';
 var HTMLblog = '<li class="flex-item"><a href="#" class="contact-url"><img src="#" class="contact-img"></img><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><a href="#" id="contact-location"><img src="#" class="contact-img"></img><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><a href="#" class="contact-location"><img src="#" class="contact-img"></img><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<div class="biopic-container"><img src="%data%" class="biopic"></div>';
+var HTMLbiopic = '<div class="biopic-container"><img src="%data%" class="biopic"></div>';
 var HTMLwelcomeMsg = '<br><div class="welcome-message">%data%</div><br>';
 
 var HTMLskillsStart = '<div id="skills-entry"><ul id="skills" class="flex-column"></ul></div>';
